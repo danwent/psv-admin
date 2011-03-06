@@ -52,3 +52,6 @@ then
 	git pull origin master # in case this is a rebuild
 fi 
 
+# set timezone to Pacific (easier for me to debug)
+ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+
