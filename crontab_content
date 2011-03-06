@@ -22,7 +22,7 @@
 # m h  dom mon dow   command
 
 0 1,13 * * * psv-admin-scripts/run_backup.sh 
-5 1,13 * * * psv-admin-scripts/run_scan.sh
+5 1,13 * * * psv-admin-scripts/start_scan.sh
 
 @reboot psv-admin-scripts/start_webserver.sh
 

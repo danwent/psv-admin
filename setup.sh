@@ -2,9 +2,11 @@
 
 if [ $# != 2 ] 
 then 
-	echo "usage: <service-seed-file> <backup-repo-name>" 
+	echo "usage: <seed-db-dump> <backup-repo-name>" 
 	exit 1
 fi 
+
+mkdir logs
 
 # setup DB file and notary keys 
 cd Perspectives-Server
