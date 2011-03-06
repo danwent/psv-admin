@@ -17,7 +17,7 @@ python utilities/file2b2.py no_keys.txt notary.sqlite
 cd ..
 
 # setup crontab
-crontab psv-admin-scripts/crontab_content
+crontab psv-admin/crontab_content
 
 # setup backup 
 if ! [ -f ~/.ssh/id_rsa ]
