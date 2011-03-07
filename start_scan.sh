@@ -1,6 +1,8 @@
 #!/bin/bash 
 
 date=`date`
+rate=100
+timeout=10 
 
 if [ 1 -eq `ps -Af | grep threaded_scanner.py | grep -v grep | wc -l` ] 
 then
@@ -11,5 +13,5 @@ fi
 
 echo "starting scan from script at $date" >> logs/scanner.log
 cd Perspectives-Server
-python utilities/list_service_ids.py notary.sqlite all | python threaded_scanner.py notary.sqlite - 100 10 >> ../logs/scanner.log &
+python utilities/list_service_ids.py notary.sqlite all | python threaded_scanner.py notary.sqlite - $rate $timeout >> ../logs/scanner.log 2>&1 &
 
