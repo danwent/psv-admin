@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-pid=`ps -Af | grep notary_http.py | grep -v grep | awk '{print $2}'`
+pid=`ps -Af | grep "python notary_http.py" | grep -v grep | awk '{print $2}'`
 
 if [ -n "$pid" ]
 then
