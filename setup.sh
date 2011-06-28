@@ -17,7 +17,7 @@ cd Perspectives-Server
 if ! [ -f notary.sqlite ]
 then
 	python utilities/create_tables.py notary.sqlite
-	grep "Start Host\|End Host" $1 > no_keys.txt
+	grep "Start Host\|End Host" ./$1 > no_keys.txt
 	python utilities/file2db.py no_keys.txt notary.sqlite
 fi 
 
@@ -52,6 +52,4 @@ then
 	git pull origin master # in case this is a rebuild
 fi 
 
-# set timezone to Pacific (easier for me to debug)
-ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
