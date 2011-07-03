@@ -19,7 +19,7 @@ then
 	python utilities/create_tables.py notary.sqlite
 	if ! [ -z "$1" ]
 	then 
-		grep "Start Host\|End Host" ./$1 > no_keys.txt
+		grep "Start Host\|End Host" ../$1 > no_keys.txt
 		python utilities/file2db.py no_keys.txt notary.sqlite
 	fi
 fi 
