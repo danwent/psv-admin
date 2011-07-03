@@ -1,3 +1,10 @@
+
+if [ $# != 2 ] 
+then 
+	echo "usage: <git-remote-server> <repo-name>" 
+	exit 1
+fi 
+
 # setup backup 
 if ! [ -f ~/.ssh/id_rsa ]
 then 

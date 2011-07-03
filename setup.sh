@@ -1,8 +1,8 @@
 #!/bin/bash 
 
-if [ $# != 2 ] 
+if [ $# != 1 ] 
 then 
-	echo "usage: <seed-db-dump> <backup-repo-name>" 
+	echo "usage: <seed-db-dump>" 
 	exit 1
 fi 
 
@@ -17,8 +17,11 @@ cd Perspectives-Server
 if ! [ -f notary.sqlite ]
 then
 	python utilities/create_tables.py notary.sqlite
-	grep "Start Host\|End Host" ./$1 > no_keys.txt
-	python utilities/file2db.py no_keys.txt notary.sqlite
+	if ! [ -z "$1" ]
+	then 
+		grep "Start Host\|End Host" ./$1 > no_keys.txt
+		python utilities/file2db.py no_keys.txt notary.sqlite
+	fi
 fi 
 
 if ! [ -f notary.priv ] 
