@@ -1,8 +1,8 @@
 #!/bin/bash 
 
-if [ $# != 1 ] 
+if [[ $1 == "help" || $1 == "--help" || $1 == "-h" ]] 
 then 
-	echo "usage: <seed-db-dump>" 
+	echo "usage: [seed-db-dump>]" 
 	exit 1
 fi 
 
