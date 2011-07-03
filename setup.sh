@@ -31,25 +31,3 @@ cd ..
 # setup crontab
 crontab psv-admin/crontab_content
 
-# setup backup 
-if ! [ -f ~/.ssh/id_rsa ]
-then 
-	echo "Generating new SSH key"
-	ssh-keygen -t rsa
-	echo "SSH public key:" 
-	cat ~/.ssh/id_rsa.pub
-fi 
- 
-
-if ! [ -d notary_backup ]  
-then 
-	mkdir notary_backup
-	cd notary_backup 
-	git init
-	git remote add origin gitosis@www.networknotary.org:$2.git
-	git config user.name "$2"
-	git config user.email "<none>"
-	git pull origin master # in case this is a rebuild
-fi 
-
-
